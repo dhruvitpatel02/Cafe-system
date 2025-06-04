@@ -108,7 +108,7 @@
   <div class="text-center p-2 p-2 mb-1 bg-dark text-white">
     <p class="text-white">© 2023 Copyright : Patel Group</p>
     <p class="text-white">Developed by :</p>
-    <p class="text-white">&nbsp;1. Vraj  
+    <p class="text-white">&nbsp;1. patel  
         &nbsp;2. Dhruvit 
         &nbsp;3. Niket </p>
   </div>
