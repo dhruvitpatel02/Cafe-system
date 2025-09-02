@@ -6,15 +6,15 @@ RUN a2enmod rewrite
 
 # Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
-        libonig-dev \        # Oniguruma library for mbstring
-        libzip-dev \         # Required for zip extension
-        zip \
-        unzip \
-        git \
-        nano \
-        curl \
-        && docker-php-ext-install mysqli pdo pdo_mysql mbstring json zip \
-        && rm -rf /var/lib/apt/lists/*
+    libonig-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    git \
+    nano \
+    curl \
+    && docker-php-ext-install mysqli pdo pdo_mysql mbstring json zip \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /var/www/html
