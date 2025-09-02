@@ -1,16 +1,17 @@
-# Use official PHP-Apache image
 FROM php:8.0-apache
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Install system dependencies needed for PHP extensions
+# Install system dependencies for PHP extensions
 RUN apt-get update && apt-get install -y \
     libonig-dev \
     libzip-dev \
     zlib1g-dev \
     libicu-dev \
     libxml2-dev \
+    build-essential \
+    pkg-config \
     zip \
     unzip \
     git \
@@ -23,7 +24,7 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy project files into Apache root
+# Copy project files
 COPY . /var/www/html/
 
 # Set permissions
