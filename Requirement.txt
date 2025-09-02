@@ -1,0 +1,50 @@
+img are to be change from adim login in website
+
+3 different logins for 3 shops(id pass from database)
+
+Engineering
+sec
+123
+
+Institute
+sit
+123
+
+Medical
+siddha
+123
+
+for admin login go to login then shop login
+==========================================================
+# LeafCafe Project Requirements
+
+# Web Server
+Apache HTTP Server >= 2.4
+OR any compatible server (XAMPP, WAMP, LAMP)
+
+# PHP
+PHP >= 7.4
+Recommended: PHP 8.0 or higher
+Required PHP extensions:
+- mysqli
+- pdo_mysql
+- json
+- session
+- mbstring
+
+# Database
+MySQL >= 5.7
+OR MariaDB >= 10.4
+Database name: saicafe
+Import file: Leafcafe.sql
+
+# Browser
+Any modern browser (Chrome, Firefox, Edge)
+
+# Development Environment (optional)
+- Visual Studio Code (recommended)
+- VS Code extensions: PHP Intelephense, PHP Debug
+- Git (if using version control)
+
+# Operating System
+Compatible with Windows / Linux / macOS
