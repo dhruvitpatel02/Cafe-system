@@ -4,11 +4,17 @@ FROM php:8.0-apache
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Install required PHP extensions (from your Requirement.txt)
+# Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
-        libzip-dev zip unzip \
-    && docker-php-ext-install mysqli pdo pdo_mysql mbstring json \
-    && rm -rf /var/lib/apt/lists/*
+        libonig-dev \        # Oniguruma library for mbstring
+        libzip-dev \         # Required for zip extension
+        zip \
+        unzip \
+        git \
+        nano \
+        curl \
+        && docker-php-ext-install mysqli pdo pdo_mysql mbstring json zip \
+        && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /var/www/html
