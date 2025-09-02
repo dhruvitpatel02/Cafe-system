@@ -6,11 +6,11 @@ RUN a2enmod rewrite
 
 # Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
-    libonig-dev \       # for mbstring
-    libzip-dev \        # for zip
-    zlib1g-dev \        # for zip support
-    libicu-dev \        # for internationalization support
-    libxml2-dev \       # required by mbstring/json sometimes
+    libonig-dev \       # For mbstring
+    libzip-dev \        # For zip
+    zlib1g-dev \        # For zip support
+    libicu-dev \        # For multibyte/internationalization
+    libxml2-dev \       # Required for some PHP extensions
     zip \
     unzip \
     git \
@@ -18,7 +18,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     && docker-php-ext-install mysqli pdo pdo_mysql mbstring json zip \
     && rm -rf /var/lib/apt/lists/*
-
 
 # Set working directory
 WORKDIR /var/www/html
