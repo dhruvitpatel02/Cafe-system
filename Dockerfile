@@ -6,11 +6,11 @@ RUN a2enmod rewrite
 
 # Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
-    libonig-dev \       # For mbstring
-    libzip-dev \        # For zip
-    zlib1g-dev \        # For zip support
-    libicu-dev \        # For multibyte/internationalization
-    libxml2-dev \       # Required for some PHP extensions
+    libonig-dev \
+    libzip-dev \
+    zlib1g-dev \
+    libicu-dev \
+    libxml2-dev \
     zip \
     unzip \
     git \
