@@ -4,7 +4,7 @@ FROM php:8.0-apache
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Install system dependencies and PHP extensions
+# Install core system dependencies
 RUN apt-get update && apt-get install -y \
     libonig-dev \
     libzip-dev \
@@ -16,8 +16,13 @@ RUN apt-get update && apt-get install -y \
     git \
     nano \
     curl \
-    && docker-php-ext-install mysqli pdo pdo_mysql mbstring json zip \
     && rm -rf /var/lib/apt/lists/*
+
+# Install PHP extensions
+RUN docker-php-ext-install -j$(nproc) mysqli pdo pdo_mysql mbstring json
+
+# Install the zip extension specifically
+RUN docker-php-ext-configure zip && docker-php-ext-install -j$(nproc) zip
 
 # Set working directory
 WORKDIR /var/www/html
