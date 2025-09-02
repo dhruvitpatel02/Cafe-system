@@ -1,0 +1,27 @@
+# Use official PHP-Apache image
+FROM php:8.0-apache
+
+# Enable Apache mod_rewrite
+RUN a2enmod rewrite
+
+# Install required PHP extensions (from your Requirement.txt)
+RUN apt-get update && apt-get install -y \
+        libzip-dev zip unzip \
+    && docker-php-ext-install mysqli pdo pdo_mysql mbstring json \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy project files into Apache root
+COPY . /var/www/html/
+
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
+
+# Expose Apache on port 80
+EXPOSE 80
+
+# Start Apache
+CMD ["apache2-foreground"]
