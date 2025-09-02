@@ -5,6 +5,7 @@ FROM php:8.0-apache
 RUN a2enmod rewrite
 
 # Install core system dependencies
+# Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
     libonig-dev \
     libzip-dev \
@@ -16,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     git \
     nano \
     curl \
+    && docker-php-ext-install mysqli pdo pdo_mysql json zip \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
